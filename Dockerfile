@@ -15,9 +15,9 @@ FROM base AS builder
 
 RUN apk update && apk add --no-cache git
 
-ENV OPENAI_API_KEY=""
-ENV MIDJOURNEY_PROXY_URL=""
-ENV CODE=""
+ENV OPENAI_API_KEY="sk-sza3f6xU9kPYnGMOnQWNV6MJKnMV6snJFXVzxYJXRmQPueSe"
+ENV MIDJOURNEY_PROXY_URL="http://ip:port"
+ENV CODE="zlx2023"
 
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -30,10 +30,10 @@ WORKDIR /app
 
 RUN apk add proxychains-ng
 
-ENV PROXY_URL=""
-ENV OPENAI_API_KEY=""
-ENV MIDJOURNEY_PROXY_URL=""
-ENV CODE=""
+ENV PROXY_URL="https://api.openai.com"
+ENV OPENAI_API_KEY="sk-sza3f6xU9kPYnGMOnQWNV6MJKnMV6snJFXVzxYJXRmQPueSe"
+ENV MIDJOURNEY_PROXY_URL="http://ip:port"
+ENV CODE="zlx2023"
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
